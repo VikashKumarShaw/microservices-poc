@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.practice.demo</groupId>
-	<artifactId>user_signup_svc</artifactId>
+	<artifactId>user_info_svc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user_signup_svc</name>
-	<description>Demo project for User Sign up</description>
+	<name>user_info_svc</name>
+	<description>Demo project for User Sign up and Login</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -40,7 +40,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>

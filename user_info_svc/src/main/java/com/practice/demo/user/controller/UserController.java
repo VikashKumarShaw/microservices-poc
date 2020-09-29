@@ -1,25 +1,26 @@
-package com.practice.demo.user.signup.controller;
+package com.practice.demo.user.controller;
 
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.practice.demo.user.signup.model.CreateUserRequestModel;
-import com.practice.demo.user.signup.service.UserService;
-import com.practice.demo.user.signup.shared.UserDto;
+import com.practice.demo.user.model.CreateUserRequestModel;
+import com.practice.demo.user.service.UserService;
+import com.practice.demo.user.shared.UserDto;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/signup")
+@RequiredArgsConstructor
 public class UserController {
 	
-	@Autowired
-	UserService userService;
+	private final UserService userService;
 	
 	@PostMapping
 	public String createUser(@Valid @RequestBody CreateUserRequestModel userDetails) {

@@ -1,4 +1,4 @@
-package com.practice.demo.user.signup.shared;
+package com.practice.demo.user.shared;
 
 import java.io.Serializable;
 

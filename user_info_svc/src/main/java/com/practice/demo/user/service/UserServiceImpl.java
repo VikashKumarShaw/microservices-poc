@@ -1,12 +1,12 @@
-package com.practice.demo.user.signup.service;
+package com.practice.demo.user.service;
 
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 
-import com.practice.demo.user.signup.data.UserEntity;
-import com.practice.demo.user.signup.shared.UserDto;
+import com.practice.demo.user.data.UserEntity;
+import com.practice.demo.user.shared.UserDto;
 
 public class UserServiceImpl implements UserService {
 
