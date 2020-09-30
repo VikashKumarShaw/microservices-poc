@@ -2,14 +2,11 @@ package com.practice.demo.product.details.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.CreatedDate;
 
 import com.practice.demo.product.details.validator.Categories;
 
@@ -44,7 +41,4 @@ public class ProductDetailsDTO implements Serializable{
 	@Column(nullable = false, length =  50)
 	private String category;
 	
-	@CreatedDate
-	@Column(nullable = false, length =  50)
-	private Date createdOn;
 }

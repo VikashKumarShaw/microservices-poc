@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "ad0f4801-302f-4d0d-8cbe-3c79e7644b32",
+		"name": "productDetails-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/getAllProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAllProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllProducts"
+					]
+				},
+				"description": "Fetch all products"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/getProductByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080//getProduct/ASUS Vivobook 14",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"",
+						"getProduct",
+						"ASUS Vivobook 14"
+					]
+				},
+				"description": "Fetch all products"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/addProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"ASUS Vivobook 14\",\n\t\"brand\" : \"ASUS\",\n\t\"price\" : 49000.56,\n\t\"quantity\" : 1,\n\t\"category\": \"electronics\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/addProduct",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addProduct"
+					]
+				},
+				"description": "Fetch all products"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/updateProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"ASUS Vivobook 14\",\n\t\"brand\" : \"ASUS\",\n\t\"price\" : 51000.56,\n\t\"quantity\" : 1,\n\t\"category\": \"electronics\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/product/ASUS Vivobook 14",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"ASUS Vivobook 14"
+					]
+				},
+				"description": "Fetch all products"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/deleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"ASUS Vivobook 14\",\n\t\"brand\" : \"ASUS\",\n\t\"price\" : 51000.56,\n\t\"quantity\" : 1,\n\t\"category\": \"electronics\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/product/ASUS Vivobook 14",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"ASUS Vivobook 14"
+					]
+				},
+				"description": "Fetch all products"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -13,4 +13,6 @@ public interface ProductDetailsRepository extends JpaRepository<ProductDetailsDT
 	public boolean existsByName(String name);
 
 	public Optional<ProductDetailsDTO> findByName(String name);
+
+	public void deleteByName(String name);
 }
