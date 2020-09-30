@@ -11,9 +11,9 @@ import com.practice.demo.user.data.UserEntity;
 import com.practice.demo.user.data.UserRepository;
 import com.practice.demo.user.shared.UserDto;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
 
