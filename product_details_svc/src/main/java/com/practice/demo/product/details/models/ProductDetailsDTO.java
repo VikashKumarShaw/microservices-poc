@@ -28,7 +28,7 @@ public class ProductDetailsDTO implements Serializable{
 	private static final long serialVersionUID = 8514895893317351518L;
 	@Id
 	@Column(nullable = false, length =  50)
-	private String productName;
+	private String name;
 	
 	@Column(nullable = false, length =  50)
 	private String brand;

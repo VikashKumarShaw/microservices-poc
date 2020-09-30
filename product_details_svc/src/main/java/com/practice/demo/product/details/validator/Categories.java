@@ -14,7 +14,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Categories {
-	String message() default "Categories must Electronics, Clothing or Groceries.";
+	String message() default "Categories must be Electronics, Clothing or Groceries.";
 
     Class<?>[] groups() default {};
 
