@@ -1,8 +1,15 @@
 package com.practice.demo.product.details.controller;
 
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -60,18 +67,42 @@ public class ProductDetailsController {
 	}
 
 	@PutMapping("/product/{name}")
-	public void updateProduct(@Valid @RequestBody ProductDetailsDTO newProductDetails,
+	public void updateProduct(@RequestBody ProductDetailsDTO newProductDetails,
 			@PathVariable("name") String name) {
-
-		if (!productDetailsService.searchProduct(name))
+		
+		Optional.ofNullable(productDetailsService.searchProduct(name)).filter(isName -> !isName).ifPresent(isName  -> {
 			throw new ProductDoesNotExistException("Product with name " + name + " does not exist");
+		});
+//		if (!productDetailsService.searchProduct(name))
+//			throw new ProductDoesNotExistException("Product with name " + name + " does not exist");
+//		productDetailsService.getProduct(name).ifPresent(product -> {
+//			product.setBrand(newProductDetails.getBrand());
+//			product.setPrice(newProductDetails.getPrice());
+//			product.setQuantity(newProductDetails.getQuantity());
+//			product.setCategory(newProductDetails.getCategory());
+//			productDetailsService.updateProduct(product);
+//		});
 		productDetailsService.getProduct(name).ifPresent(product -> {
-			product.setBrand(newProductDetails.getBrand());
-			product.setPrice(newProductDetails.getPrice());
-			product.setQuantity(newProductDetails.getQuantity());
-			product.setCategory(newProductDetails.getCategory());
+			copyNonNullProperties(newProductDetails, product);
 			productDetailsService.updateProduct(product);
 		});
+	}
+	
+	public static void copyNonNullProperties(Object src, Object target) {
+	    BeanUtils.copyProperties(src, target, getNullPropertyNames(src));
+	}
+
+	public static String[] getNullPropertyNames (Object source) {
+	    final BeanWrapper src = new BeanWrapperImpl(source);
+	    java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+
+	    Set<String> emptyNames = new HashSet<String>();
+	    for(java.beans.PropertyDescriptor pd : pds) {
+	        Object srcValue = src.getPropertyValue(pd.getName());
+	        if (srcValue == null) emptyNames.add(pd.getName());
+	    }
+	    String[] result = new String[emptyNames.size()];
+	    return emptyNames.toArray(result);
 	}
 	
 	@Transactional

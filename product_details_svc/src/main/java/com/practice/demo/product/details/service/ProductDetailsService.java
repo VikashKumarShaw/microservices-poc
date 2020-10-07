@@ -40,7 +40,7 @@ public class ProductDetailsService {
 		
 	}
 	
-	public Optional<ProductDetailsDTO> updateProduct(@Valid ProductDetailsDTO productDetails) {
+	public Optional<ProductDetailsDTO> updateProduct(ProductDetailsDTO productDetails) {
 		return Optional.ofNullable(productDetailsRepository.save(productDetails));
 		
 	}
